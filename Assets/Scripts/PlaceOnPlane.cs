@@ -7,17 +7,18 @@ using UnityEngine.XR.ARSubsystems;
 public class PlaceOnPlane : MonoBehaviour
 {
     ARRaycastManager ARRaycastManager;
-
     [SerializeField] AudioSource audioSource;
 
     private Vector2 touchPosition;
     public GameObject ScenePrefab;
     static List<ARRaycastHit> Hits = new List<ARRaycastHit>();
 
+
+
     private void Awake()
     {
         ARRaycastManager = GetComponent<ARRaycastManager>();
-        ScenePrefab.SetActive(false);
+       // ScenePrefab.SetActive(false);
     }
 
     // Start is called before the fist frame update

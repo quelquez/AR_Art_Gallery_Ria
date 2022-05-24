@@ -6830,10 +6830,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c04ddd671d400445af5ac4bfdcc0254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 801501455}
-  placementIndicator: {fileID: 1626698775}
   ARRaycastManager: {fileID: 1479410090}
   ARPlaneManager: {fileID: 1479410091}
+  ARPointCloudManager: {fileID: 0}
+  objectToPlace: {fileID: 0}
+  placementIndicator: {fileID: 1626698775}
 --- !u!4 &987467846
 Transform:
   m_ObjectHideFlags: 0

@@ -6,12 +6,13 @@ using UnityEngine.XR.ARSubsystems;
 
 public class PortalPlacement : MonoBehaviour
 {
-    public ARRaycastManager ARRaycastManager;
-    public ARPlaneManager ARPlaneManager;
-    public ARPointCloudManager ARPointCloudManager;
+    ARRaycastManager ARRaycastManager;
+    ARPlaneManager ARPlaneManager;
+    ARPointCloudManager ARPointCloudManager;
 
     [SerializeField] public GameObject objectToPlace;
     [SerializeField] public GameObject placementIndicator;
+    [SerializeField] AudioSource audioSource;
 
     static List<ARRaycastHit> raycastHits = new List<ARRaycastHit>();
     private Pose placementIndicatorPose;
@@ -28,6 +29,7 @@ public class PortalPlacement : MonoBehaviour
     {
         if (isObjectPlaced == false)
         {
+            placementIndicator.SetActive(true);
             PlaceObject();
         }
     }
@@ -38,9 +40,17 @@ public class PortalPlacement : MonoBehaviour
         {
             placementIndicatorPose = raycastHits[0].pose;
             placementIndicator.transform.SetPositionAndRotation(placementIndicatorPose.position, placementIndicatorPose.rotation);
-        }
 
-        isObjectPlaced = true;
-        objectToPlace.SetActive(true);
+            isObjectPlaced = true;
+            objectToPlace.SetActive(true);
+
+            audioSource.Play();
+        }
+    }
+
+    public void ReplaceObject()
+    {
+        objectToPlace.SetActive(false);
+        audioSource.Stop();
     }
 }

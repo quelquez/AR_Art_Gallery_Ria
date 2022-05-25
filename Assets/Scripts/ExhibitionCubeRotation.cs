@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class exhibitionRotation : MonoBehaviour
+public class ExhibitionCubeRotation : MonoBehaviour
 {
     [SerializeField] GameObject exhibitionCube;
     public float xAngle, yAngle, zAngle;
